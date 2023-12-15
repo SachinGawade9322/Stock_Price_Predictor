@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Predictor</title>
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Stock Price Predictor</h1>
+
+        <form action="/predictform" method="post">
+            <div class="form-group">
+                <label for="open">Open Price:</label>
+                <input type="text" class="form-control" name="open" required>
+            </div>
+
+            <div class="form-group">
+                <label for="high">High Price:</label>
+                <input type="text" class="form-control" name="high" required>
+            </div>
+
+            <div class="form-group">
+                <label for="low">Low Price:</label>
+                <input type="text" class="form-control" name="low" required>
+            </div>
+
+            <div class="form-group">
+                <label for="volume">Volume:</label>
+                <input type="text" class="form-control" name="volume" required>
+            </div>
+
+            <div class="form-group">
+                <label for="day">Day:</label>
+                <input type="text" class="form-control" name="day" required>
+            </div>
+
+            <div class="form-group">
+                <label for="month">Month:</label>
+                <input type="text" class="form-control" name="month" required>
+            </div>
+
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="text" class="form-control" name="year" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <h2 class="mt-4">Prediction: {{ prediction }}</h2>
+        {% endif %}
+
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (optional) for certain Bootstrap components -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
